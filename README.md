@@ -12,8 +12,6 @@ resultado em JSON.
 clearbank-analise/
 ├── desafio-final.ipynb   # notebook principal (código + saídas salvas)
 ├── transacoes.csv        # dados de entrada (1000 registros)
-├── analise_pandas.py     # (opcional · RO1) versão alternativa com pandas
-├── grafico.png           # (opcional · RO2) crédito x débito por mês
 ├── relatorio.json        # saída gerada pelo notebook
 └── README.md
 ```
@@ -55,13 +53,31 @@ distribuídos entre janeiro e junho de 2026.
   média, maior e menor valor por mês) e a lista de transações suspeitas.
 - **`relatorio.json`**: arquivo com `gerado_em`, totais de transações válidas e
   inválidas, o resumo mensal e as transações suspeitas.
-- **`grafico.png`** (opcional): barras empilhadas de crédito e débito por mês.
 
-## Opcionais implementados
+## Exemplo de saída no terminal
 
-- **RO1 — pandas** (`analise_pandas.py`): recalcula as métricas com
-  `pd.read_csv` + `groupby` e compara com o `relatorio.json` da solução nativa.
-  Rode com `python analise_pandas.py` após gerar o `relatorio.json` pelo
-  notebook. Os valores conferem integralmente.
-- **RO2 — matplotlib**: gráfico de barras empilhadas (`grafico.png`) com título,
-  rótulos nos eixos e legenda, gerado na última seção do notebook.
+```
+========================================
+       ANÁLISE FINANCEIRA — ClearBank
+========================================
+Período analisado: 2026-01-01 → 2026-06-30 (180 dias)
+Transações válidas:   750
+Transações inválidas: 250
+
+===== RELATÓRIO MENSAL =====
+
+Mês: 2026-01
+  Transações:    116
+  Total crédito: R$ 298.131,28
+  Total débito:  R$ 475.698,90
+  Saldo:         R$ -177.567,62
+  Média:         R$ 6.670,95
+  Maior valor:   R$ 55.895,10
+  Menor valor:   R$ 188,84
+...
+
+===== TRANSAÇÕES SUSPEITAS =====
+ID: 723 | Cliente: CLI037 | Data: 2026-01-02 | Valor: R$ 16.161,77
+...
+```
+
